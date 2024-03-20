@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Register";
+    Layout = "_Layout_Register_or_Login";
+}
+
+<div class="container">
+    <main role="main" class="pb-3">
+        <form>
+
+            <fieldset>
+                <legend style="padding-top : 10px">Register Now</legend>
+                <div>
+                    <label for="exampleInputFirstName1" class="form-label mt-4">First Name</label>
+                    <input  class="form-control" id="exampleFirstName1" placeholder="Enter First Name">
+                </div>
+                <div>
+                    <label for="exampleInputLastName1" class="form-label mt-4">Last Name</label>
+                    <input class="form-control" id="exampleInputLastName1" placeholder="Enter Last Name" autocomplete="off">
+                </div>
+                <div>
+                    <label for="exampleInputEmail1" class="form-label mt-4">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div>
+                    <label for="exampleInputPassword1" class="form-label mt-4">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Set your password" autocomplete="off">
+                </div>
+                <div>
+                    <label for="exampleInputPassword1" class="form-label mt-4">Repete password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder=" Repete password" autocomplete="off">
+                </div>
+                <div>
+                    <label for="examplePhoneNumber1" class="form-label mt-4">Phone Number</label>
+                    <input type="tel" class="form-control" id="exampleInputLastName1" placeholder="Phone Number" autocomplete="off">
+                </div>
+            </fieldset>
+
+        </form>
+    </main>
+</div>
