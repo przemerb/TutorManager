@@ -1,41 +1,73 @@
-﻿@{
+﻿@model TutorManager.Models.UserModel
+@{
     ViewData["Title"] = "Register";
     Layout = "_Layout_Register_or_Login";
 }
 
 <div class="container">
     <main role="main" class="pb-3">
-        <form>
+         @using (Html.BeginForm("Index", "Register", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <form>
 
-            <fieldset>
-                <legend style="padding-top : 10px">Register Now</legend>
-                <div>
-                    <label for="exampleInputFirstName1" class="form-label mt-4">First Name</label>
-                    <input  class="form-control" id="exampleFirstName1" placeholder="Enter First Name">
-                </div>
-                <div>
-                    <label for="exampleInputLastName1" class="form-label mt-4">Last Name</label>
-                    <input class="form-control" id="exampleInputLastName1" placeholder="Enter Last Name" autocomplete="off">
-                </div>
-                <div>
-                    <label for="exampleInputEmail1" class="form-label mt-4">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                </div>
-                <div>
-                    <label for="exampleInputPassword1" class="form-label mt-4">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Set your password" autocomplete="off">
-                </div>
-                <div>
-                    <label for="exampleInputPassword1" class="form-label mt-4">Repete password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder=" Repete password" autocomplete="off">
-                </div>
-                <div>
-                    <label for="examplePhoneNumber1" class="form-label mt-4">Phone Number</label>
-                    <input type="tel" class="form-control" id="exampleInputLastName1" placeholder="Phone Number" autocomplete="off">
-                </div>
-            </fieldset>
+                <fieldset>
+                    <legend style="padding-top : 10px">Register Now</legend>
+                    <div>
+                        @Html.LabelFor(model => model.FirstName, "First Name", new { @for = "exampleInputFirstName1", @class = "form-label mt-4" })
+                        @Html.TextBoxFor(model => model.FirstName, "", new { @class = "form-control", @id = "exampleInputFirstName1", @placeholder = "Enter First Name", @autocomplete = "off" })
+                        @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "badge badge-danger" })
+                    </div>
+                    <div>
+                        @Html.LabelFor(model => model.LastName, "Last Name", new { @for = "exampleInputLastName1", @class = "form-label mt-4" })
+                        @Html.TextBoxFor(model => model.LastName, "", new { @class = "form-control", @id = "exampleInputLastName1", @placeholder = "Enter Last Name", @autocomplete = "off" })
+                        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "badge badge-danger" })
+                    </div>
+                    <div>
+                        @Html.LabelFor(model => model.Email, "Email", new { @for = "exampleInputEmail1", @class = "form-label mt-4" })
+                        @Html.TextBoxFor(model => model.Email, "", new { @class = "form-control", @id = "exampleInputEmail1", placeholder = "Enter email" })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "badge badge-danger" })
+                        @if (ViewBag.error != null)
+                        {
+                            <span class="badge badge-danger">@ViewBag.error</span>
+                        }
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div>
+                        @Html.LabelFor(model => model.Password, "Password", new { @for = "exampleInputPassword1", @class = "form-label mt-4" })
+                        @Html.PasswordFor(model => model.Password, new { @class = "form-control", @id = "exampleInputPassword1", @placeholder = "Set your password", @autocomplete = "off" })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "badge badge-danger" })
+                    </div>
+                    <div>
+                        @Html.LabelFor(model => model.ConfirmPassword ,"Repete password", new { @for = "exampleInputPassword1", @class = "form-label mt-4" })
+                        @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control", @id = "exampleInputPassword1", @placeholder = "Repete your password", @autocomplete = "off" })
+                        @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "badge badge-danger" })
+                    </div>
+                    <div>
+                        @Html.LabelFor(model => model.PhoneNumber, "Phone Number", new { @for = "exampleInputTelName1", @class = "form-label mt-4" })
+                        @Html.TextBoxFor(model => model.PhoneNumber, "", new { @class = "form-control", @id = "exampleInputTelName1", @placeholder = "Enter Phone Number", @autocomplete = "off" })
+                        @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "badge badge-danger" })
+                    </div>
+                    <fieldset>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="UserRole" id="optionsRadios1" value="Student" checked="">
+                            <label class="form-check-label" for="optionsRadios1">
+                                Student
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="UserRole" id="optionsRadios2" value="Tutor">
+                            <label class="form-check-label" for="optionsRadios2">
+                                Tutor
+                            </label>
+                        </div>
+                    </fieldset>
+                    <div class="form-group">
+                        <input type="submit" name="submit" class="btn btn-primary" value="Register" />
+                    </div>
+                </fieldset>
 
-        </form>
+            </form>
+        }
     </main>
 </div>
