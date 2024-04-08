@@ -17,27 +17,6 @@ namespace TutorManager.Controllers
             return View();
         }
 
-/*        [HttpPost]
-        public IActionResult Index(UserModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                var check = _db_con.UsersTable.FirstOrDefault(u => u.Email == model.Email);
-                if (check == null)
-                {
-                    _db_con.UsersTable.Add(model);
-                    _db_con.SaveChanges();
-                    return RedirectToAction("RegistrationSuccess");
-                }
-                else
-                {
-                    ViewBag.error = "Email already exists";
-                    return View();
-                }
-            }
-            return View(model);
-        }*/
-
         [HttpPost]
         public IActionResult Index(UserModel model, string UserRole)
         {
@@ -87,7 +66,7 @@ namespace TutorManager.Controllers
                     {
                         _db_con.TutorTable.Add(tutor_model);
                         _db_con.SaveChanges();
-                        return RedirectToAction("RegistrationSuccess");
+                        return RedirectToAction("Index", "Student");
                     }
                     else
                     {
@@ -98,12 +77,5 @@ namespace TutorManager.Controllers
             }
             return View(model);
         }
-
-
-        public IActionResult RegistrationSuccess()
-        {
-            return View();
-        }
-
     }
 }

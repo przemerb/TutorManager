@@ -18,6 +18,10 @@ namespace TutorManager.Controllers
             return View();
         }
 
+        public IActionResult NotLogged()
+        {
+            return View();
+        }
         public IActionResult Privacy()
         {
             return View();

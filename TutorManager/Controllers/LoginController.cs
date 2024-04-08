@@ -6,9 +6,11 @@ namespace TutorManager.Controllers
     public class LoginController : Controller
     {
         private readonly DataContext _db_con;
-        public LoginController(DataContext dbContext)
+        private readonly ISession _session;
+        public LoginController(DataContext dbContext, IHttpContextAccessor httpContextAccessor)
         {
             _db_con = dbContext;
+            _session = httpContextAccessor.HttpContext.Session;
         }
         public IActionResult Index()
         {
@@ -25,6 +27,10 @@ namespace TutorManager.Controllers
                 //data = _db_con.StudentTable.Where(u => u.Email.Equals(email) && u.Password.Equals(password)).ToList();
                 if (studentData.Count() != 0) 
                 {
+                    _session.SetString("FirstName", studentData[0].FirstName);
+                    _session.SetString("LastName", studentData[0].LastName);
+                    _session.SetString("UserEmail", email);
+                    _session.SetString("Phone", studentData[0].PhoneNumber);
                     return RedirectToAction("Index", "Student");
                 }
                 else if(tutorData.Count() != 0)
@@ -37,6 +43,12 @@ namespace TutorManager.Controllers
                 }
             }
             return View(email, password);
+        }
+
+        public ActionResult Logout()
+        {
+            _session.Clear();
+            return RedirectToAction("Index");
         }
     }
 }

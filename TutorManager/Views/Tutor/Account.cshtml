@@ -1,5 +1,42 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Account";
+    Layout = "_Layout_Tutor";
 }
+
+<main>
+    <div class="row justify-content-md-start">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    User Data
+                </div>
+                <div class="card-body">
+                    @if (!string.IsNullOrEmpty(ViewBag.FirstName))
+                    {
+                        <p>First Name: @ViewBag.FirstName</p>
+                    }
+                </div>
+                <div class="card-body">
+                    @if (!string.IsNullOrEmpty(ViewBag.Lastname))
+                    {
+                        <p>Second Name: @ViewBag.LastName</p>
+                    }
+                </div>
+                <div class="card-body">
+                    @if (!string.IsNullOrEmpty(ViewBag.UserEmail))
+                    {
+                        <p>Emial: @ViewBag.UserEmail</p>
+                    }
+                </div>
+                <div class="card-body">
+                    @if (!string.IsNullOrEmpty(ViewBag.Phone))
+                    {
+                        <p>Phone: @ViewBag.Phone</p>
+                    }
+                </div>
+            </div>
+            <a href="@Url.Action("ChangeData")" class="btn btn-success">Change user data</a>
+
+        </div>
+    </div>
+</main>

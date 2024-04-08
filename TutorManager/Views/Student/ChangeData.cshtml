@@ -1,0 +1,47 @@
+﻿@model TutorManager.Models.UserModel
+@{
+    ViewData["Title"] = "Account";
+    Layout = "_Layout_Student";
+}
+
+<div class="container">
+    <main role="main" class="pb-3">
+        @using (Html.BeginForm("ChangeData", "Student", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <form>
+
+                <fieldset>
+                    <legend style="padding-top : 10px">Change Data</legend>
+                    <div>
+                        @Html.LabelFor(model => model.FirstName, "First Name", new { @for = "exampleInputFirstName1", @class = "form-label mt-4" })
+                        @Html.TextBoxFor(model => model.FirstName, "", new { @class = "form-control", @id = "exampleInputFirstName1", @placeholder = "Enter First Name", @autocomplete = "off" })
+                        @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "badge badge-danger" })
+                    </div>
+                    <div>
+                        @Html.LabelFor(model => model.LastName, "Last Name", new { @for = "exampleInputLastName1", @class = "form-label mt-4" })
+                        @Html.TextBoxFor(model => model.LastName, "", new { @class = "form-control", @id = "exampleInputLastName1", @placeholder = "Enter Last Name", @autocomplete = "off" })
+                        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "badge badge-danger" })
+                    </div>
+                    <div>
+                        @Html.LabelFor(model => model.Email, "Email", new { @for = "exampleInputEmail1", @class = "form-label mt-4" })
+                        @Html.TextBoxFor(model => model.Email, "", new { @class = "form-control", @id = "exampleInputEmail1", placeholder = "Enter email" })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "badge badge-danger" })
+                        @if (ViewBag.error != null)
+                        {
+                            <span class="badge badge-danger">@ViewBag.error</span>
+                        }
+                    <div>
+                        @Html.LabelFor(model => model.PhoneNumber, "Phone Number", new { @for = "exampleInputTelName1", @class = "form-label mt-4" })
+                        @Html.TextBoxFor(model => model.PhoneNumber, "", new { @class = "form-control", @id = "exampleInputTelName1", @placeholder = "Enter Phone Number", @autocomplete = "off" })
+                        @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "badge badge-danger" })
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" name="submit" class="btn btn-primary" value="Change Data" />
+                    </div>
+                </fieldset>
+
+            </form>
+        }
+    </main>
+</div>
