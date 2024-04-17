@@ -24,14 +24,6 @@
                         @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "badge badge-danger" })
                     </div>
                     <div>
-                        @Html.LabelFor(model => model.Email, "Email", new { @for = "exampleInputEmail1", @class = "form-label mt-4" })
-                        @Html.TextBoxFor(model => model.Email, "", new { @class = "form-control", @id = "exampleInputEmail1", placeholder = "Enter email" })
-                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "badge badge-danger" })
-                        @if (ViewBag.error != null)
-                        {
-                            <span class="badge badge-danger">@ViewBag.error</span>
-                        }
-                    <div>
                         @Html.LabelFor(model => model.PhoneNumber, "Phone Number", new { @for = "exampleInputTelName1", @class = "form-label mt-4" })
                         @Html.TextBoxFor(model => model.PhoneNumber, "", new { @class = "form-control", @id = "exampleInputTelName1", @placeholder = "Enter Phone Number", @autocomplete = "off" })
                         @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "badge badge-danger" })
@@ -43,5 +35,6 @@
 
             </form>
         }
+
     </main>
 </div>

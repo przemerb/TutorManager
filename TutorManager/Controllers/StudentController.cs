@@ -18,7 +18,7 @@ namespace TutorManager.Controllers
         }
         public IActionResult Index()
         {
-            if(IsLogged()) 
+            if (IsLogged())
             {
                 return RedirectToAction("NotLogged", "Home");
             }
@@ -35,7 +35,7 @@ namespace TutorManager.Controllers
             return View();
         }
 
-        public IActionResult Account() 
+        public IActionResult Account()
         {
             if (IsLogged())
             {
@@ -45,6 +45,7 @@ namespace TutorManager.Controllers
             ViewBag.LastName = HttpContext.Session.GetString("LastName");
             ViewBag.UserEmail = HttpContext.Session.GetString("UserEmail");
             ViewBag.Phone = HttpContext.Session.GetString("Phone");
+            ViewBag.Charge = HttpContext.Session.GetInt32("Charge");
             return View();
         }
 
@@ -56,6 +57,7 @@ namespace TutorManager.Controllers
         [HttpPost]
         public IActionResult ChangeData(UserModel model)
         {
+
             if (ModelState.IsValid)
             {
                 var userEmail = HttpContext.Session.GetString("UserEmail");
@@ -63,7 +65,6 @@ namespace TutorManager.Controllers
 
                 if (_student != null)
                 {
-                    _student.Email = model.Email;
                     _student.FirstName = model.FirstName;
                     _student.LastName = model.LastName;
                     _student.PhoneNumber = model.PhoneNumber;
@@ -74,5 +75,33 @@ namespace TutorManager.Controllers
             return View(model);
         }
 
+        public IActionResult ChangePassword()
+        {
+            return PartialView();
+        }
+
+        [HttpPost]
+        public IActionResult ChangePassword(UserModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var userEmail = HttpContext.Session.GetString("UserEmail");
+                var _student = _db_con.StudentTable.FirstOrDefault(u => u.Email == userEmail);
+
+                if (_student != null)
+                {
+                    _student.Password = model.Password;
+                    _student.ConfirmPassword = model.ConfirmPassword;
+                    _db_con.SaveChanges();
+                    ViewBag.SuccessMessage = "Data updated";
+                }
+            }
+            return View();
+        }
+
+        public IActionResult Pay()
+        {
+            return PartialView();
+        }
     }
 }

@@ -6,7 +6,7 @@
 
 <div class="container">
     <main role="main" class="pb-3">
-         @using (Html.BeginForm("Index", "Register", FormMethod.Post))
+        @using (Html.BeginForm("Index", "Register", FormMethod.Post))
         {
             @Html.AntiForgeryToken()
             <form>

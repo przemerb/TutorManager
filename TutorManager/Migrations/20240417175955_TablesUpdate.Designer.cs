@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TutorManager.Data;
 
@@ -10,9 +11,11 @@ using TutorManager.Data;
 namespace TutorManager.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240417175955_TablesUpdate")]
+    partial class TablesUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,16 +32,7 @@ namespace TutorManager.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("LessonId"));
 
-                    b.Property<string>("LessonStatus")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Price")
-                        .HasColumnType("int");
-
                     b.Property<int>("StudentId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TutorGratification")
                         .HasColumnType("int");
 
                     b.Property<int>("TutorId")
@@ -99,12 +93,12 @@ namespace TutorManager.Migrations
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ExpectedGratification")
-                        .HasColumnType("int");
-
                     b.Property<string>("FirstName")
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
+
+                    b.Property<int>("Gratification")
+                        .HasColumnType("int");
 
                     b.Property<string>("LastName")
                         .HasMaxLength(50)
@@ -118,12 +112,6 @@ namespace TutorManager.Migrations
 
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Subject")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("SumGratification")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

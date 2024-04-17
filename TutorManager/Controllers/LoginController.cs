@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TutorManager.Data;
+using TutorManager.Models;
 
 namespace TutorManager.Controllers
 {
@@ -31,10 +32,19 @@ namespace TutorManager.Controllers
                     _session.SetString("LastName", studentData[0].LastName);
                     _session.SetString("UserEmail", email);
                     _session.SetString("Phone", studentData[0].PhoneNumber);
+                    _session.SetString("Password", studentData[0].Password);
+                    _session.SetInt32("Charge", (studentData[0].Charge));
                     return RedirectToAction("Index", "Student");
                 }
                 else if(tutorData.Count() != 0)
                 {
+                    _session.SetString("FirstName", tutorData[0].FirstName);
+                    _session.SetString("LastName", tutorData[0].LastName);
+                    _session.SetString("UserEmail", email);
+                    _session.SetString("Phone", tutorData[0].PhoneNumber);
+                    _session.SetString("Password", tutorData[0].Password);
+                    _session.SetInt32("SumGratification", tutorData[0].SumGratification);
+                    _session.SetInt32("NumOfStudents", Convert.ToInt32(tutorData[0].NumOfStudents));
                     return RedirectToAction("Index", "Tutor");
                 }
                 else

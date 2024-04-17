@@ -1,0 +1,35 @@
+﻿@model TutorManager.Models.TutorModel
+@{
+    ViewData["Title"] = "MoreInfo";
+    Layout = "_Layout_Register_or_Login";
+}
+
+<div class="container">
+    <main role="main" class="pb-3">
+
+        @using (Html.BeginForm("MoreInfo", "Register", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <form>
+
+                <fieldset>
+                    <legend style="padding-top : 10px">Add more information to your profile!</legend>
+                    <div>
+                        @Html.LabelFor(model => model.ExpectedGratification, "Expected Gratification", new { @for = "InputExpectedGratification", @class = "form-label mt-4" })
+                        @Html.TextBoxFor(model => model.ExpectedGratification, "", new { @class = "form-control", @id = "exampleInputFirstName1", @placeholder = "Enter Expected Gratification PLN per Hour", @autocomplete = "off", @type="number" })
+                        @Html.ValidationMessageFor(m => m.ExpectedGratification, "", new { @class = "badge badge-danger" })
+                    </div>
+
+                    <div>
+                        @Html.LabelFor(model => model.Subject, "Subject")
+                        @Html.DropDownListFor(model => model.Subject, new SelectList(new string[] { "Maths", "Phisics", "Biology", "English", "German" }), new { @class = "form-select" })
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" name="submit" class="btn btn-primary" value="Add to profile" />
+                    </div>
+                </fieldset>
+
+            </form>
+        }
+    </main>
+</div>

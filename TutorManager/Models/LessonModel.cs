@@ -15,5 +15,8 @@ namespace TutorManager.Models
         [ForeignKey("Student")]
         public int StudentId { get; set; }
         public StudentModel Student { get; set; }
+        public int Price { get; set; }
+        public int TutorGratification { get; set; }
+        public string? LessonStatus { get; set; }
     }
 }

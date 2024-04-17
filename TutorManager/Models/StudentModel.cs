@@ -2,5 +2,6 @@
 {
     public class StudentModel : UserModel
     {
+        public int Charge {  get; set; }
     }
 }

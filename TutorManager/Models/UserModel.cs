@@ -18,7 +18,6 @@ namespace TutorManager.Models
         public string? PhoneNumber { get; set; }
 
         [NotMapped]
-        [Required]
         [Compare("Password")]
         public string? ConfirmPassword { get; set; }
         public string FullName()

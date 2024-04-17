@@ -4,8 +4,8 @@
 }
 
 <main>
-    <div class="row justify-content-md-start">
-        <div class="col-md-4">
+    <div class="row justify-content-between" style="padding : 30px">
+        <div class="col-md-5 mb-4">
             <div class="card">
                 <div class="card-header">
                     User Data
@@ -19,13 +19,13 @@
                 <div class="card-body">
                     @if (!string.IsNullOrEmpty(ViewBag.Lastname))
                     {
-                        <p>Second Name: @ViewBag.LastName</p>
+                        <p>Last Name: @ViewBag.LastName</p>
                     }
                 </div>
                 <div class="card-body">
                     @if (!string.IsNullOrEmpty(ViewBag.UserEmail))
                     {
-                        <p>Emial: @ViewBag.UserEmail</p>
+                        <p>Email: @ViewBag.UserEmail</p>
                     }
                 </div>
                 <div class="card-body">
@@ -34,9 +34,24 @@
                         <p>Phone: @ViewBag.Phone</p>
                     }
                 </div>
+                <div class="card-footer">
+                    <a href="@Url.Action("ChangeData")" class="btn btn-success mr-2">Change user data</a>
+                    <a href="@Url.Action("ChangePassword")" class="btn btn-success">Change password</a>
+                </div>
             </div>
-            <a href="@Url.Action("ChangeData")" class="btn btn-success">Change user data</a>
+        </div>
 
+        <div class="col-md-5 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    Payments
+                </div>
+                <div class="card-body">
+                    <p>Charge to pay: @ViewBag.Charge</p>
+                </div>
+                <a href="@Url.Action("Pay")" class="btn btn-success">Payments</a>
+
+            </div>
         </div>
     </div>
 </main>
