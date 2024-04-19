@@ -1,0 +1,27 @@
+﻿@model List<TutorManager.Models.TutorModel>
+@{
+    ViewData["Title"] = "Tutors List";
+    Layout = "_Layout_Student";
+}
+
+<div class="container">
+    <main role="main" class="pb-3">
+        <h2>Tutors Offering @ViewBag.SelectedSubject</h2>
+
+        <ul>
+            @foreach (var tutor in Model)
+            {
+                <li>@tutor.FirstName @tutor.LastName - @tutor.Subject - Expected Gratification: @tutor.ExpectedGratification PLN per Hour</li>
+                <form method="post" action="@Url.Action("RequestLesson")">
+                    <input type="hidden" name="tutorId" value="@tutor.Id" />
+
+                    <div class="form-group">
+                        <label for="lessonDateTime">Select Lesson Date and Time:</label>
+                        <input type="datetime-local" class="form-control" name="lessonDateTime" required />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Request Lesson</button>
+                </form>
+            }
+        </ul>
+    </main>
+</div>

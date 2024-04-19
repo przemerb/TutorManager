@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Find Lesson";
+    Layout = "_Layout_Student";
+}
+
+<div class="container">
+    <main role="main" class="pb-3">
+        <h2>Find Lesson</h2>
+
+        @using (Html.BeginForm("FindLesson", "Student", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-group">
+                <label for="selectedSubject">Select Subject:</label>
+                @Html.DropDownList("selectedSubject", ViewBag.Subjects as SelectList, "Select a Subject", new { @class = "form-control" })
+            </div>
+
+            <button type="submit" class="btn btn-primary">Find Tutors</button>
+        }
+    </main>
+</div>

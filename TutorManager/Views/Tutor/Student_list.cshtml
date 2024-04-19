@@ -1,5 +1,62 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Lessons";
+    Layout = "_Layout_Tutor";
 }
+
+<div class="container">
+    <main role="main" class="pb-3">
+        <h3>Your Students</h3>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Student</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var student_id in ViewBag.Students)
+                {
+                    var student = student_id.Student as TutorManager.Models.StudentModel;
+
+                    <tr>
+                        <td>
+                            @if (student != null)
+                            {
+                                @student.FirstName
+                                <text> </text>
+                                @student.LastName
+                            }
+                            else
+                            {
+                                <text>Student not found</text>
+                            }
+                        </td>
+                        <td>
+                            @if (student != null)
+                            {
+                                @student.Email
+                            }
+                            else
+                            {
+                                <text>Student not found</text>
+                            }
+                        </td>
+                        <td>
+                            @if (student != null)
+                            {
+                                @student.PhoneNumber
+                            }
+                            else
+                            {
+                                <text>Student not found</text>
+                            }
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </main>
+</div>

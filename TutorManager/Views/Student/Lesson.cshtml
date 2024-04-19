@@ -3,10 +3,56 @@
     Layout = "_Layout_Student";
 }
 
-<div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
-    <div class="card-header">Header</div>
-    <div class="card-body">
-        <h4 class="card-title">Primary card title</h4>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
+<div class="container">
+    <main role="main" class="pb-3">
+
+        <h3>Confirmed lessons</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Date and Time</th>
+                    <th>Tutor</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var lesson in ViewBag.Lessons)
+                {
+                    var tutor = lesson.Tutor as TutorManager.Models.TutorModel;
+
+                    @if (lesson.LessonStatus == "Pending") continue;
+                    <tr>
+                        <td>@lesson.Subject</td>
+                        <td>@(lesson.LessonDateTime.ToString("dd/MM/yyyy HH:mm"))</td>
+                        <td>@tutor.FirstName @tutor.LastName</td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+
+        <h3>Pending lessons</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Date and Time</th>
+                    <th>Tutor</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var lesson in ViewBag.Lessons)
+                {
+                    var tutor = lesson.Tutor as TutorManager.Models.TutorModel;
+                    @if (lesson.LessonStatus == "Accepted") continue;
+                    <tr>
+                        <td>@lesson.Subject</td>
+                        <td>@(lesson.LessonDateTime.ToString("dd/MM/yyyy HH:mm"))</td>
+                        <td>@tutor.FirstName @tutor.LastName</td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </main>
 </div>

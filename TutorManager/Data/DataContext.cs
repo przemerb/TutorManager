@@ -9,7 +9,6 @@ namespace TutorManager.Data
         {
 
         }
-        //public DbSet<UserModel> UsersTable { get; set; }
         public DbSet<TutorModel> TutorTable { get; set; }   
         public DbSet<StudentModel> StudentTable { get; set; }
         public DbSet<LessonModel> LessonTable { get; set; }

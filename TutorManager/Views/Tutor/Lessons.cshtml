@@ -1,0 +1,104 @@
+﻿@{
+    ViewData["Title"] = "Lessons";
+    Layout = "_Layout_Tutor";
+}
+
+<div class="container">
+    <main role="main" class="pb-3">
+        <h2>Lessons</h2>
+
+        <h3>Pending Lessons</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Student</th>
+                    <th>Subject</th>
+                    <th>Date and Time</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var lesson in ViewBag.Inquiries)
+                {
+                    var student = lesson.Student as TutorManager.Models.StudentModel;
+                    var subject = lesson.Subject as string;
+
+                    <tr>
+                        <td>
+                            @if (student != null)
+                            {
+                                @student.FirstName
+                                <text> </text>
+                                @student.LastName
+                            }
+                            else
+                            {
+                                <text>Student not found</text>
+                            }
+                        </td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(subject))
+                            {
+                                @subject
+                            }
+                            else
+                            {
+                                <text>Subject not specified</text>
+                            }
+                        </td>
+                        <td>@(lesson.LessonDateTime.ToString("dd/MM/yyyy HH:mm"))</td>
+                        <td>
+                            <a href="@Url.Action("AcceptLesson", new { lessonId = lesson.LessonId })" class="btn btn-success">Accept</a>
+                            <a href="@Url.Action("RejectLesson", new { lessonId = lesson.LessonId })" class="btn btn-danger">Reject</a>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+
+        <h3>Accepted Lessons</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Student</th>
+                    <th>Subject</th>
+                    <th>Date and Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var lesson in ViewBag.Accepted)
+                {
+                    var student = lesson.Student as TutorManager.Models.StudentModel;
+                    var subject = lesson.Subject as string;
+
+                    <tr>
+                        <td>
+                            @if (student != null)
+                            {
+                                @student.FirstName
+                                <text> </text>
+                                @student.LastName
+                            }
+                            else
+                            {
+                                <text>Student not found</text>
+                            }
+                        </td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(subject))
+                            {
+                                @subject
+                            }
+                            else
+                            {
+                                <text>Subject not specified</text>
+                            }
+                        </td>
+                        <td>@(lesson.LessonDateTime.ToString("dd/MM/yyyy HH:mm"))</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </main>
+</div>

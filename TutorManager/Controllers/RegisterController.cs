@@ -44,6 +44,7 @@ namespace TutorManager.Controllers
                     {
                         _db_con.StudentTable.Add(student_model);
                         _db_con.SaveChanges();
+                        _session.SetInt32("StudentID", student_model.Id);
                         _session.SetString("FirstName", student_model.FirstName);
                         _session.SetString("LastName", student_model.LastName);
                         _session.SetString("UserEmail", student_model.Email);
@@ -79,6 +80,7 @@ namespace TutorManager.Controllers
                     {
                         _db_con.TutorTable.Add(tutor_model);
                         _db_con.SaveChanges();
+                        _session.SetInt32("TutorID", tutor_model.Id);
                         _session.SetString("FirstName", tutor_model.FirstName);
                         _session.SetString("LastName", tutor_model.LastName);
                         _session.SetString("UserEmail", tutor_model.Email);
@@ -86,6 +88,7 @@ namespace TutorManager.Controllers
                         _session.SetString("Password", tutor_model.Password);
                         _session.SetInt32("SumGratification", tutor_model.SumGratification);
                         _session.SetInt32("NumOfStudents", Convert.ToInt32(tutor_model.NumOfStudents));
+                        _session.SetInt32("ExpGratification", tutor_model.ExpectedGratification);
                         return RedirectToAction("MoreInfo");
                     }
                     else

@@ -28,6 +28,7 @@ namespace TutorManager.Controllers
                 //data = _db_con.StudentTable.Where(u => u.Email.Equals(email) && u.Password.Equals(password)).ToList();
                 if (studentData.Count() != 0) 
                 {
+                    _session.SetInt32("StudentID", studentData[0].Id);
                     _session.SetString("FirstName", studentData[0].FirstName);
                     _session.SetString("LastName", studentData[0].LastName);
                     _session.SetString("UserEmail", email);
@@ -38,6 +39,7 @@ namespace TutorManager.Controllers
                 }
                 else if(tutorData.Count() != 0)
                 {
+                    _session.SetInt32("TutorID", tutorData[0].Id);
                     _session.SetString("FirstName", tutorData[0].FirstName);
                     _session.SetString("LastName", tutorData[0].LastName);
                     _session.SetString("UserEmail", email);
@@ -45,6 +47,7 @@ namespace TutorManager.Controllers
                     _session.SetString("Password", tutorData[0].Password);
                     _session.SetInt32("SumGratification", tutorData[0].SumGratification);
                     _session.SetInt32("NumOfStudents", Convert.ToInt32(tutorData[0].NumOfStudents));
+                    _session.SetInt32("ExpGratification", tutorData[0].ExpectedGratification);
                     return RedirectToAction("Index", "Tutor");
                 }
                 else

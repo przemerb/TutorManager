@@ -3,3 +3,17 @@
     Layout = "_Layout_Student";
 }
 
+<main>
+    <div class="col-md-5 mb-4">
+        <div class="card">
+            <div class="card-header">
+                Pay
+            </div>
+            <div class="card-body">
+                <p>Charge to pay: @ViewBag.Charge</p>
+            </div>
+            <a href="@Url.Action("Payment")" class="btn btn-success">Pay</a>
+
+        </div>
+    </div>
+</main>

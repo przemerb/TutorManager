@@ -44,12 +44,15 @@
         <div class="col-md-5 mb-4">
             <div class="card">
                 <div class="card-header">
-                    Payments
+                    Salary
                 </div>
                 <div class="card-body">
-                    <p>Charge to pay: @ViewBag.Charge</p>
+                    <p>Summary gratification: @ViewBag.SumGratification</p>
                 </div>
-                <a href="@Url.Action("Pay")" class="btn btn-success">Payments</a>
+                <div class="card-body">
+                    <p>Expected gratification (PLN per hour): @ViewBag.ExpGratification</p>
+                </div>
+                <a href="@Url.Action("Withdraw")" class="btn btn-success">Withdraw</a>
 
             </div>
         </div>

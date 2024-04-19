@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TutorManager.Data;
 
@@ -11,9 +12,11 @@ using TutorManager.Data;
 namespace TutorManager.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240419112316_LessonUpadate2")]
+    partial class LessonUpadate2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,9 +44,6 @@ namespace TutorManager.Migrations
 
                     b.Property<int>("StudentId")
                         .HasColumnType("int");
-
-                    b.Property<string>("Subject")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("TutorGratification")
                         .HasColumnType("int");
