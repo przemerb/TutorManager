@@ -1,4 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Azure.Identity;
+using Google.Apis.Auth.OAuth2;
+using Google.Apis.Calendar.v3;
+using Google.Apis.Calendar.v3.Data;
+using Google.Apis.Services;
+using Google.Apis.Util.Store;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TutorManager.Data;
 
@@ -8,6 +14,11 @@ namespace TutorManager.Controllers
     {
         private readonly DataContext _db_con;
         private readonly ISession _session;
+
+        static string[] Scopes = { CalendarService.Scope.CalendarReadonly };
+        static string ApplicationName = "Google Calendar";
+        public List<object> GoogleEvents = new List<object>();
+
         public TutorController(DataContext dbContext, IHttpContextAccessor httpContextAccessor)
         {
             _db_con = dbContext;
@@ -53,6 +64,8 @@ namespace TutorManager.Controllers
         }
         public IActionResult Schedule()
         {
+            CalendarEvents();
+            ViewBag.EventList = GoogleEvents;
             return View();
         }
 
@@ -119,6 +132,68 @@ namespace TutorManager.Controllers
             }
 
             return RedirectToAction("Lessons");
+        }
+
+        public void CalendarEvents()
+        {
+            UserCredential credential;
+            //string path = Server.MapPath("credentail.json");
+
+            using( var stream =
+                new FileStream("Credential2.json", FileMode.Open, FileAccess.Read))
+            {
+                string credPath = "token.json";
+                credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
+                    GoogleClientSecrets.Load(stream).Secrets,
+                    Scopes,
+                    "user",
+                    CancellationToken.None,
+                    new FileDataStore(credPath, true)).Result;
+            }
+
+            var service = new CalendarService(new BaseClientService.Initializer()
+            {
+                HttpClientInitializer = credential,
+                ApplicationName = ApplicationName,
+            });
+
+            EventsResource.ListRequest request = service.Events.List("primary");
+            request.TimeMin = DateTime.Now;
+            request.ShowDeleted = false;
+            request.SingleEvents = true;
+            request.MaxResults = 10;
+            request.OrderBy = EventsResource.ListRequest.OrderByEnum.StartTime;
+
+            Events events = request.Execute();
+            if(events.Items != null && events.Items.Count > 0)
+            {
+                foreach(var eventItem in events.Items) 
+                {
+                    GoogleEvents.Add(new
+                    {
+                        Title = eventItem.Summary,
+                        Start = eventItem.Start.DateTime,
+                        End = eventItem.End.DateTime,
+                    });
+                }
+            }
+
+            var userEmail = HttpContext.Session.GetString("UserEmail");
+            var tutor = _db_con.TutorTable.FirstOrDefault(t => t.Email == userEmail);
+            var lessons = _db_con.LessonTable
+                .Include(l => l.Student)
+                .Where(l => l.TutorId == tutor.Id).ToList();
+
+            foreach (var lesson in lessons)
+            {
+                GoogleEvents.Add(new
+                {
+                    Title = $"Lesson with {lesson.Student.FirstName} {lesson.Student.LastName}",
+                    Start = lesson.LessonDateTime,
+                    End = lesson.LessonDateTime.AddHours(1),
+                });
+            }
+            GoogleEvents = GoogleEvents.OrderBy((dynamic e) => e.Start).ToList();
         }
 
     }
