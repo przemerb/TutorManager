@@ -3,3 +3,26 @@
     Layout = "_Layout_Student";
 }
 
+<h2>Upcoming Events</h2>
+<hr />
+
+@if (ViewBag.EventList != null)
+{
+    <table class="table table-hover">
+        <tr>
+            <th>Event title</th>
+            <th>DateTime</th>
+        </tr>
+        @foreach (var item in ViewBag.EventList)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.Start <text> - </text> @item.End</td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <div class="alert alert-danger">No Upcoming events</div>
+}
