@@ -12,7 +12,8 @@ using TutorManager.Models;
 
 namespace TutorManager.Controllers
 {
-
+    [ApiController]
+    [Route("api/[controller]/[action]")]
     public class StudentController : Controller
     {
         private readonly DataContext _db_con;
@@ -27,10 +28,13 @@ namespace TutorManager.Controllers
             _db_con = dbContext;
             _session = httpContextAccessor.HttpContext.Session;
         }
+
+        [NonAction]
         private bool IsLogged()
         {
             return HttpContext.Session.GetString("UserEmail") == null;
         }
+        [HttpGet]
         public IActionResult Index()
         {
             if (IsLogged())
@@ -41,6 +45,7 @@ namespace TutorManager.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult Schedule()
         {
             CalendarEvents();
@@ -48,6 +53,7 @@ namespace TutorManager.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult Account()
         {
             if (IsLogged())
@@ -62,6 +68,7 @@ namespace TutorManager.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult ChangeData()
         {
             return PartialView();
@@ -88,6 +95,7 @@ namespace TutorManager.Controllers
             return View(model);
         }
 
+        [HttpGet]
         public IActionResult ChangePassword()
         {
             return PartialView();
@@ -112,6 +120,7 @@ namespace TutorManager.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult FindLesson()
         {
             var subjects = _db_con.TutorTable.Select(t => t.Subject).Distinct().ToList();
@@ -154,6 +163,7 @@ namespace TutorManager.Controllers
             return RedirectToAction("FindLesson");
         }
 
+        [HttpGet]
         public IActionResult Lesson()
         {
             var studentID = HttpContext.Session.GetInt32("StudentID");
@@ -162,6 +172,7 @@ namespace TutorManager.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult Pay()
         {
             var userEmail = HttpContext.Session.GetString("UserEmail");
@@ -169,6 +180,7 @@ namespace TutorManager.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult Payment()
         {
             var student_id = HttpContext.Session.GetInt32("StudentID");
@@ -182,6 +194,7 @@ namespace TutorManager.Controllers
             return RedirectToAction("Pay");
         }
 
+        [HttpGet]
         public void CalendarEvents()
         {
             UserCredential credential;

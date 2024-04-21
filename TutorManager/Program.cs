@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using Microsoft.OpenApi.Models;
 using TutorManager.Data;
 
 
@@ -20,6 +21,14 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession();
 
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "TutorManager API", Version = "v1" });
+
+    // Include XML comments
+    c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "TutorManager.xml"));
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -38,7 +47,12 @@ app.UseRouting();
 app.UseSession();
 
 app.UseAuthorization();
-
+app.UseSwagger();
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "TutorManager API");
+    c.RoutePrefix = string.Empty; // To serve the Swagger UI at the app's root URL
+});
 
 app.MapControllerRoute(
     name: "default",

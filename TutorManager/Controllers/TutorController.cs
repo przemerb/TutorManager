@@ -10,6 +10,8 @@ using TutorManager.Data;
 
 namespace TutorManager.Controllers
 {
+    [ApiController]
+    [Route("api/[controller]/[action]")]
     public class TutorController : Controller
     {
         private readonly DataContext _db_con;
@@ -24,10 +26,13 @@ namespace TutorManager.Controllers
             _db_con = dbContext;
             _session = httpContextAccessor.HttpContext.Session;
         }
+        [NonAction]
         private bool IsLogged()
         {
             return HttpContext.Session.GetString("UserEmail") == null;
         }
+
+        [HttpGet]
         public IActionResult Index()
         {
             if (IsLogged())
@@ -36,6 +41,7 @@ namespace TutorManager.Controllers
             }
             return View();
         }
+        [HttpGet]
         public IActionResult Account()
         {
             if (IsLogged())
@@ -51,6 +57,7 @@ namespace TutorManager.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult Withdraw()
         {
             var tutorId = HttpContext.Session.GetInt32("TutorID");
@@ -62,6 +69,8 @@ namespace TutorManager.Controllers
 
             return RedirectToAction("Account");
         }
+
+        [HttpGet]
         public IActionResult Schedule()
         {
             CalendarEvents();
@@ -69,6 +78,7 @@ namespace TutorManager.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult Student_list()
         {
             var tutorID = HttpContext.Session.GetInt32("TutorID");
@@ -82,6 +92,7 @@ namespace TutorManager.Controllers
             return View();
         }
 
+        [HttpPost]
         public IActionResult Lessons()
         {
             var tutorID = HttpContext.Session.GetInt32("TutorID");
@@ -102,6 +113,7 @@ namespace TutorManager.Controllers
             return View();
         }
 
+        [HttpPost]
         public IActionResult AcceptLesson(int lessonId)
         {
             var lesson = _db_con.LessonTable.FirstOrDefault(l => l.LessonId == lessonId && l.LessonStatus == "Pending");
@@ -121,6 +133,7 @@ namespace TutorManager.Controllers
             return RedirectToAction("Lessons");
         }
 
+        [HttpPost]
         public IActionResult RejectLesson(int lessonId)
         {
             var lesson = _db_con.LessonTable.FirstOrDefault(l => l.LessonId == lessonId && l.LessonStatus == "Pending");
@@ -134,6 +147,7 @@ namespace TutorManager.Controllers
             return RedirectToAction("Lessons");
         }
 
+        [HttpPost]
         public void CalendarEvents()
         {
             UserCredential credential;

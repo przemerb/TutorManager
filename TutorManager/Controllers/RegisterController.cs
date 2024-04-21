@@ -6,6 +6,8 @@ using TutorManager.Models;
 
 namespace TutorManager.Controllers
 {
+    [ApiController]
+    [Route("api/[controller]/[action]")]
     public class RegisterController : Controller
     {
         private readonly DataContext _db_con;
@@ -15,6 +17,8 @@ namespace TutorManager.Controllers
             _db_con = dbContext;
             _session = httpContextAccessor.HttpContext.Session;
         }
+
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
@@ -101,6 +105,7 @@ namespace TutorManager.Controllers
             return View(model);
         }
 
+        [HttpGet]
         public IActionResult MoreInfo()
         {
             return View();
