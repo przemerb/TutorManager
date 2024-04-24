@@ -1,5 +1,8 @@
 ﻿namespace TutorManager.Models
 {
+    /// <summary>
+    /// Model Tutor dziedziczący do User
+    /// </summary>
     public class TutorModel : UserModel
     {
         public string? Subject {  get; set; }

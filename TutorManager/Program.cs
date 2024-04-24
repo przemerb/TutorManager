@@ -21,13 +21,14 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession();
 
-builder.Services.AddSwaggerGen(c =>
+/*builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "TutorManager API", Version = "v1" });
 
     // Include XML comments
-    c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "TutorManager.xml"));
-});
+    var filePath = Path.Combine(System.AppContext.BaseDirectory, "TutorManager.xml");
+    c.IncludeXmlComments(filePath);
+});*/
 
 var app = builder.Build();
 
@@ -47,12 +48,17 @@ app.UseRouting();
 app.UseSession();
 
 app.UseAuthorization();
-app.UseSwagger();
+/*app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "TutorManager API");
     c.RoutePrefix = string.Empty; // To serve the Swagger UI at the app's root URL
-});
+});*/
+
+/*app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+});*/
 
 app.MapControllerRoute(
     name: "default",

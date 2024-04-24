@@ -3,8 +3,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TutorManager.Models
 {
+    /// <summary>
+    /// Model użytkownika
+    /// </summary>
     public class UserModel
     {
+        /// <summary>
+        /// Klucz primary
+        /// </summary>
         [Key, Column(Order = 1)]
         public int Id { get; set; }
 

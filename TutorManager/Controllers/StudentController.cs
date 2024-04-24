@@ -12,8 +12,12 @@ using TutorManager.Models;
 
 namespace TutorManager.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]/[action]")]
+/*    [ApiController]
+    [Route("api/[controller]/[action]")]*/
+
+    /// <summary>
+    /// Kontroler panelu Studenta
+    /// </summary>
     public class StudentController : Controller
     {
         private readonly DataContext _db_con;
@@ -23,17 +27,31 @@ namespace TutorManager.Controllers
         static string ApplicationName = "Google Calendar";
         public List<object> GoogleEvents = new List<object>();
 
+        /// <summary>
+        /// Konstruktora kontrolera
+        /// </summary>
+        /// <param name="dbContext">Context Entity framework</param>
+        /// <param name="httpContextAccessor"></param>
         public StudentController(DataContext dbContext, IHttpContextAccessor httpContextAccessor)
         {
             _db_con = dbContext;
             _session = httpContextAccessor.HttpContext.Session;
         }
 
+        /// <summary>
+        /// Metoda sprawdzająca czy istnieje zalogowany użytkownik w sesji
+        /// </summary>
+        /// <returns>1 - nie istnieje, 0  - istnieje</returns>
         [NonAction]
         private bool IsLogged()
         {
             return HttpContext.Session.GetString("UserEmail") == null;
         }
+
+        /// <summary>
+        /// Widok domowy
+        /// </summary>
+        /// <returns>Widok domowy</returns>
         [HttpGet]
         public IActionResult Index()
         {
@@ -45,6 +63,10 @@ namespace TutorManager.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Widok harmonogramu
+        /// </summary>
+        /// <returns>Widok harmonogramu</returns>
         [HttpGet]
         public IActionResult Schedule()
         {
@@ -53,6 +75,10 @@ namespace TutorManager.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Widok konta
+        /// </summary>
+        /// <returns>Dane użytkownika</returns>
         [HttpGet]
         public IActionResult Account()
         {
@@ -68,13 +94,23 @@ namespace TutorManager.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Widok formularza zmiany danych użytkownika
+        /// </summary>
+        /// <returns>Widok formularza HTML</returns>
         [HttpGet]
         public IActionResult ChangeData()
         {
             return PartialView();
         }
 
-        [HttpPost]
+
+        /// <summary>
+        /// Zmiana danych w bazie
+        /// </summary>
+        /// <param name="model">Model z nowymi danymi</param>
+        /// <returns>Przekierowanie po zmianie danych</returns>
+        //[HttpPost]
         public IActionResult ChangeData(UserModel model)
         {
 
@@ -95,13 +131,22 @@ namespace TutorManager.Controllers
             return View(model);
         }
 
-        [HttpGet]
+        /// <summary>
+        /// Widok formularza do zmiany hasła
+        /// </summary>
+        /// <returns>Widok formularza HTML</returns>
+        //[HttpGet]
         public IActionResult ChangePassword()
         {
             return PartialView();
         }
 
-        [HttpPost]
+        /// <summary>
+        /// Zmiana hasła w bazie
+        /// </summary>
+        /// <param name="model">Model ze zmienionym hasłem</param>
+        /// <returns>Widok po zmianie hasła</returns>
+        //[HttpPost]
         public IActionResult ChangePassword(UserModel model)
         {
             if (ModelState.IsValid)
@@ -120,6 +165,10 @@ namespace TutorManager.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Widok formularza do szukania lekcji
+        /// </summary>
+        /// <returns>Widok formularza HTML</returns>
         [HttpGet]
         public IActionResult FindLesson()
         {
@@ -129,6 +178,11 @@ namespace TutorManager.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Znajdowanie w bazie Tutorów dla danego przedmiotu
+        /// </summary>
+        /// <param name="selectedSubject">Przedmiot do wyszukiwania</param>
+        /// <returns>Widok listy dostępnych Tutorów</returns>
         [HttpPost]
         public IActionResult FindLesson(string? selectedSubject)
         {
@@ -137,6 +191,12 @@ namespace TutorManager.Controllers
             return View("TutorList", tutors);
         }
 
+        /// <summary>
+        /// Obsługa zapisu na lekcję
+        /// </summary>
+        /// <param name="tutorId">ID wybranego Tutora</param>
+        /// <param name="lessonDateTime">Data podana przez użytkownika</param>
+        /// <returns>Przikierowanie do widoku wyszukiwania lekcji</returns>
         [HttpPost]
         public IActionResult RequestLesson(int tutorId, DateTime lessonDateTime)
         {
@@ -163,6 +223,10 @@ namespace TutorManager.Controllers
             return RedirectToAction("FindLesson");
         }
 
+        /// <summary>
+        /// Widok lekcji użytkownika
+        /// </summary>
+        /// <returns>Widok listy HTML</returns>
         [HttpGet]
         public IActionResult Lesson()
         {
@@ -172,14 +236,23 @@ namespace TutorManager.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Panel opłat
+        /// </summary>
+        /// <returns>Widok panelu opłat</returns>
         [HttpGet]
         public IActionResult Pay()
         {
             var userEmail = HttpContext.Session.GetString("UserEmail");
             var student = _db_con.StudentTable.FirstOrDefault(u => u.Email == userEmail);
+            ViewBag.Charge = HttpContext.Session.GetInt32("Charge");
             return View();
         }
 
+        /// <summary>
+        /// Obsługa zapłaty
+        /// </summary>
+        /// <returns>Przekierowanie do widoku panelu opłat</returns>
         [HttpGet]
         public IActionResult Payment()
         {
@@ -194,11 +267,13 @@ namespace TutorManager.Controllers
             return RedirectToAction("Pay");
         }
 
+        /// <summary>
+        /// Wyświetlanie panelu kalendarza z Google Calendar API
+        /// </summary>
         [HttpGet]
         public void CalendarEvents()
         {
             UserCredential credential;
-            //string path = Server.MapPath("credentail.json");
 
             using (var stream =
                 new FileStream("Credential2.json", FileMode.Open, FileAccess.Read))

@@ -10,8 +10,11 @@ using TutorManager.Data;
 
 namespace TutorManager.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]/[action]")]
+/*    [ApiController]
+    [Route("api/[controller]/[action]")]*/
+    /// <summary>
+    /// Kontroler panelu Tutora
+    /// </summary>
     public class TutorController : Controller
     {
         private readonly DataContext _db_con;
@@ -21,17 +24,32 @@ namespace TutorManager.Controllers
         static string ApplicationName = "Google Calendar";
         public List<object> GoogleEvents = new List<object>();
 
+        /// <summary>
+        /// Konstruktora kontrolera
+        /// </summary>
+        /// <param name="dbContext">Context Entity framework</param>
+        /// <param name="httpContextAccessor"></param>
         public TutorController(DataContext dbContext, IHttpContextAccessor httpContextAccessor)
         {
             _db_con = dbContext;
             _session = httpContextAccessor.HttpContext.Session;
         }
+
+        /// <summary>
+        /// Metoda sprawdzająca czy istnieje zalogowany użytkownik w sesji
+        /// </summary>
+        /// <returns>1 - nie istnieje, 0  - istnieje</returns>
         [NonAction]
         private bool IsLogged()
         {
             return HttpContext.Session.GetString("UserEmail") == null;
         }
 
+
+        /// <summary>
+        /// Widok domowy
+        /// </summary>
+        /// <returns>Widok domowy</returns>
         [HttpGet]
         public IActionResult Index()
         {
@@ -39,8 +57,14 @@ namespace TutorManager.Controllers
             {
                 return RedirectToAction("NotLogged", "Home");
             }
+            ViewBag.UserEmail = HttpContext.Session.GetString("UserEmail");
             return View();
         }
+
+        /// <summary>
+        /// Wyświetlanie informacji o koncie użytkownika
+        /// </summary>
+        /// <returns>Widok panelu z danymi uzytkowanika</returns>
         [HttpGet]
         public IActionResult Account()
         {
@@ -57,6 +81,10 @@ namespace TutorManager.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Widok wypłaty
+        /// </summary>
+        /// <returns>Przekierowanie do panelu konta</returns>
         [HttpGet]
         public IActionResult Withdraw()
         {
@@ -70,6 +98,10 @@ namespace TutorManager.Controllers
             return RedirectToAction("Account");
         }
 
+        /// <summary>
+        /// Wyświetlanie harmonogramu
+        /// </summary>
+        /// <returns>Widok listy HTML</returns>
         [HttpGet]
         public IActionResult Schedule()
         {
@@ -78,6 +110,10 @@ namespace TutorManager.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Widok listy zapisanych studnetów
+        /// </summary>
+        /// <returns>Widok listy HTML</returns>
         [HttpGet]
         public IActionResult Student_list()
         {
@@ -92,7 +128,11 @@ namespace TutorManager.Controllers
             return View();
         }
 
-        [HttpPost]
+        /// <summary>
+        /// Widok lekcji użytkownika
+        /// </summary>
+        /// <returns>Widok listy HTML</returns>
+        [HttpGet]
         public IActionResult Lessons()
         {
             var tutorID = HttpContext.Session.GetInt32("TutorID");
@@ -113,6 +153,11 @@ namespace TutorManager.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Akceptacja lekcji przez Tutora
+        /// </summary>
+        /// <param name="lessonId">ID lekcji do akceptacji</param>
+        /// <returns>Przekierowanie do widoku lekcji</returns>
         [HttpPost]
         public IActionResult AcceptLesson(int lessonId)
         {
@@ -133,6 +178,11 @@ namespace TutorManager.Controllers
             return RedirectToAction("Lessons");
         }
 
+        /// <summary>
+        /// Odrzucenie leckji przez Tutora
+        /// </summary>
+        /// <param name="lessonId">ID lekcji do odrzucenia</param>
+        /// <returns>Przekierowanie do widoku lekcji</returns>
         [HttpPost]
         public IActionResult RejectLesson(int lessonId)
         {
@@ -147,6 +197,9 @@ namespace TutorManager.Controllers
             return RedirectToAction("Lessons");
         }
 
+        /// <summary>
+        /// Wyświetlanie panelu kalendarza z Google Calendar API
+        /// </summary>
         [HttpPost]
         public void CalendarEvents()
         {

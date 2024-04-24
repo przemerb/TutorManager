@@ -1,0 +1,311 @@
+\doxysection{Tutor\+Manager.\+Controllers.\+Student\+Controller Class Reference}
+\hypertarget{class_tutor_manager_1_1_controllers_1_1_student_controller}{}\label{class_tutor_manager_1_1_controllers_1_1_student_controller}\index{TutorManager.Controllers.StudentController@{TutorManager.Controllers.StudentController}}
+
+
+Kontroler panelu Studenta.  
+
+
+Inheritance diagram for Tutor\+Manager.\+Controllers.\+Student\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_tutor_manager_1_1_controllers_1_1_student_controller}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_tutor_manager_1_1_controllers_1_1_student_controller_a05bea1cf1ccf3a8d4f33380aa1d89b5f}{Student\+Controller}} (\mbox{\hyperlink{class_tutor_manager_1_1_data_1_1_data_context}{Data\+Context}} db\+Context, IHttp\+Context\+Accessor http\+Context\+Accessor)
+\begin{DoxyCompactList}\small\item\em Konstruktora kontrolera. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_tutor_manager_1_1_controllers_1_1_student_controller_a82b89725338c349ca19cfb0458492fae}{Index}} ()
+\begin{DoxyCompactList}\small\item\em Widok domowy. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_tutor_manager_1_1_controllers_1_1_student_controller_a9f89b63d9ab1e34d736c54bc81a38b23}{Schedule}} ()
+\begin{DoxyCompactList}\small\item\em Widok harmonogramu. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_tutor_manager_1_1_controllers_1_1_student_controller_a0657e9324c1a673eac5fb69a0623332e}{Account}} ()
+\begin{DoxyCompactList}\small\item\em Widok konta. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_tutor_manager_1_1_controllers_1_1_student_controller_a22e1cb4888933259c347d3337f1d577b}{Change\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Widok formularza zmiany danych użytkownika. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_tutor_manager_1_1_controllers_1_1_student_controller_a3ea681bda7642abcbacdee65e86b8155}{Change\+Data}} (\mbox{\hyperlink{class_tutor_manager_1_1_models_1_1_user_model}{User\+Model}} model)
+\begin{DoxyCompactList}\small\item\em Zmiana danych w bazie. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_tutor_manager_1_1_controllers_1_1_student_controller_ad60a25265d29eb19d4b80b89c74b059a}{Change\+Password}} ()
+\begin{DoxyCompactList}\small\item\em Widok formularza do zmiany hasła. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_tutor_manager_1_1_controllers_1_1_student_controller_af51f53c07252a4631c6f4b48e7d17945}{Change\+Password}} (\mbox{\hyperlink{class_tutor_manager_1_1_models_1_1_user_model}{User\+Model}} model)
+\begin{DoxyCompactList}\small\item\em Zmiana hasła w bazie. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_tutor_manager_1_1_controllers_1_1_student_controller_a07cc37e87c363b1e372c8c92eb68032c}{Find\+Lesson}} ()
+\begin{DoxyCompactList}\small\item\em Widok formularza do szukania lekcji. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_tutor_manager_1_1_controllers_1_1_student_controller_aeb2ba90db91cc8a9df437dbb93e087d9}{Find\+Lesson}} (string? selected\+Subject)
+\begin{DoxyCompactList}\small\item\em Znajdowanie w bazie Tutorów dla danego przedmiotu. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_tutor_manager_1_1_controllers_1_1_student_controller_ac2ae4f55e01387e69fd03d4fadc7b831}{Request\+Lesson}} (int tutor\+Id, Date\+Time lesson\+Date\+Time)
+\begin{DoxyCompactList}\small\item\em Obsługa zapisu na lekcję \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_tutor_manager_1_1_controllers_1_1_student_controller_ab84f4d3b0f10dc684d52b5a2a608425d}{Lesson}} ()
+\begin{DoxyCompactList}\small\item\em Widok lekcji użytkownika. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_tutor_manager_1_1_controllers_1_1_student_controller_a2e95aeb953985f02bf7ce4abcb952bd4}{Pay}} ()
+\begin{DoxyCompactList}\small\item\em Panel opłat. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_tutor_manager_1_1_controllers_1_1_student_controller_a939390b4642ed06ccd0d925d46c73e13}{Payment}} ()
+\begin{DoxyCompactList}\small\item\em Obsługa zapłaty. \end{DoxyCompactList}\item 
+\Hypertarget{class_tutor_manager_1_1_controllers_1_1_student_controller_a4412621a55459691cfdec71edf843df4}\label{class_tutor_manager_1_1_controllers_1_1_student_controller_a4412621a55459691cfdec71edf843df4} 
+void {\bfseries Calendar\+Events} ()
+\begin{DoxyCompactList}\small\item\em Wyświetlanie panelu kalendarza z Google Calendar API. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_tutor_manager_1_1_controllers_1_1_student_controller_a6cbce8fff9b27a1f8604d1792e52b960}\label{class_tutor_manager_1_1_controllers_1_1_student_controller_a6cbce8fff9b27a1f8604d1792e52b960} 
+List$<$ object $>$ {\bfseries Google\+Events} = new List$<$object$>$()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_tutor_manager_1_1_controllers_1_1_student_controller_a1d5c55273bcd387f4bc1ef3345f91381}{Is\+Logged}} ()
+\begin{DoxyCompactList}\small\item\em Metoda sprawdzająca czy istnieje zalogowany użytkownik w sesji. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_tutor_manager_1_1_controllers_1_1_student_controller_ad2d27ceb2e442378239037b46fb9ed89}\label{class_tutor_manager_1_1_controllers_1_1_student_controller_ad2d27ceb2e442378239037b46fb9ed89} 
+readonly \mbox{\hyperlink{class_tutor_manager_1_1_data_1_1_data_context}{Data\+Context}} {\bfseries \+\_\+db\+\_\+con}
+\item 
+\Hypertarget{class_tutor_manager_1_1_controllers_1_1_student_controller_a3ddc687a35c3a47b80425e88859f851d}\label{class_tutor_manager_1_1_controllers_1_1_student_controller_a3ddc687a35c3a47b80425e88859f851d} 
+readonly ISession {\bfseries \+\_\+session}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_tutor_manager_1_1_controllers_1_1_student_controller_a387b481ade737e572f1a2c1d1edaa9d3}\label{class_tutor_manager_1_1_controllers_1_1_student_controller_a387b481ade737e572f1a2c1d1edaa9d3} 
+static string\mbox{[}$\,$\mbox{]} {\bfseries Scopes} = \{ Calendar\+Service.\+Scope.\+Calendar\+Readonly \}
+\item 
+\Hypertarget{class_tutor_manager_1_1_controllers_1_1_student_controller_a0cb9d20d9c2012be33a5bc6348dd8204}\label{class_tutor_manager_1_1_controllers_1_1_student_controller_a0cb9d20d9c2012be33a5bc6348dd8204} 
+static string {\bfseries Application\+Name} = "{}Google Calendar"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Kontroler panelu Studenta. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_tutor_manager_1_1_controllers_1_1_student_controller_a05bea1cf1ccf3a8d4f33380aa1d89b5f}\label{class_tutor_manager_1_1_controllers_1_1_student_controller_a05bea1cf1ccf3a8d4f33380aa1d89b5f} 
+\index{TutorManager.Controllers.StudentController@{TutorManager.Controllers.StudentController}!StudentController@{StudentController}}
+\index{StudentController@{StudentController}!TutorManager.Controllers.StudentController@{TutorManager.Controllers.StudentController}}
+\doxysubsubsection{\texorpdfstring{StudentController()}{StudentController()}}
+{\footnotesize\ttfamily Tutor\+Manager.\+Controllers.\+Student\+Controller.\+Student\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tutor_manager_1_1_data_1_1_data_context}{Data\+Context}}}]{db\+Context,  }\item[{IHttp\+Context\+Accessor}]{http\+Context\+Accessor }\end{DoxyParamCaption})}
+
+
+
+Konstruktora kontrolera. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em db\+Context} & Context Entity framework\\
+\hline
+{\em http\+Context\+Accessor} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_tutor_manager_1_1_controllers_1_1_student_controller_a0657e9324c1a673eac5fb69a0623332e}\label{class_tutor_manager_1_1_controllers_1_1_student_controller_a0657e9324c1a673eac5fb69a0623332e} 
+\index{TutorManager.Controllers.StudentController@{TutorManager.Controllers.StudentController}!Account@{Account}}
+\index{Account@{Account}!TutorManager.Controllers.StudentController@{TutorManager.Controllers.StudentController}}
+\doxysubsubsection{\texorpdfstring{Account()}{Account()}}
+{\footnotesize\ttfamily IAction\+Result Tutor\+Manager.\+Controllers.\+Student\+Controller.\+Account (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Widok konta. 
+
+\begin{DoxyReturn}{Returns}
+Dane użytkownika
+\end{DoxyReturn}
+\Hypertarget{class_tutor_manager_1_1_controllers_1_1_student_controller_a22e1cb4888933259c347d3337f1d577b}\label{class_tutor_manager_1_1_controllers_1_1_student_controller_a22e1cb4888933259c347d3337f1d577b} 
+\index{TutorManager.Controllers.StudentController@{TutorManager.Controllers.StudentController}!ChangeData@{ChangeData}}
+\index{ChangeData@{ChangeData}!TutorManager.Controllers.StudentController@{TutorManager.Controllers.StudentController}}
+\doxysubsubsection{\texorpdfstring{ChangeData()}{ChangeData()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily IAction\+Result Tutor\+Manager.\+Controllers.\+Student\+Controller.\+Change\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Widok formularza zmiany danych użytkownika. 
+
+\begin{DoxyReturn}{Returns}
+Widok formularza HTML
+\end{DoxyReturn}
+\Hypertarget{class_tutor_manager_1_1_controllers_1_1_student_controller_a3ea681bda7642abcbacdee65e86b8155}\label{class_tutor_manager_1_1_controllers_1_1_student_controller_a3ea681bda7642abcbacdee65e86b8155} 
+\index{TutorManager.Controllers.StudentController@{TutorManager.Controllers.StudentController}!ChangeData@{ChangeData}}
+\index{ChangeData@{ChangeData}!TutorManager.Controllers.StudentController@{TutorManager.Controllers.StudentController}}
+\doxysubsubsection{\texorpdfstring{ChangeData()}{ChangeData()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily IAction\+Result Tutor\+Manager.\+Controllers.\+Student\+Controller.\+Change\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tutor_manager_1_1_models_1_1_user_model}{User\+Model}}}]{model }\end{DoxyParamCaption})}
+
+
+
+Zmiana danych w bazie. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & Model z nowymi danymi\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Przekierowanie po zmianie danych
+\end{DoxyReturn}
+\Hypertarget{class_tutor_manager_1_1_controllers_1_1_student_controller_ad60a25265d29eb19d4b80b89c74b059a}\label{class_tutor_manager_1_1_controllers_1_1_student_controller_ad60a25265d29eb19d4b80b89c74b059a} 
+\index{TutorManager.Controllers.StudentController@{TutorManager.Controllers.StudentController}!ChangePassword@{ChangePassword}}
+\index{ChangePassword@{ChangePassword}!TutorManager.Controllers.StudentController@{TutorManager.Controllers.StudentController}}
+\doxysubsubsection{\texorpdfstring{ChangePassword()}{ChangePassword()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily IAction\+Result Tutor\+Manager.\+Controllers.\+Student\+Controller.\+Change\+Password (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Widok formularza do zmiany hasła. 
+
+\begin{DoxyReturn}{Returns}
+Widok formularza HTML
+\end{DoxyReturn}
+\Hypertarget{class_tutor_manager_1_1_controllers_1_1_student_controller_af51f53c07252a4631c6f4b48e7d17945}\label{class_tutor_manager_1_1_controllers_1_1_student_controller_af51f53c07252a4631c6f4b48e7d17945} 
+\index{TutorManager.Controllers.StudentController@{TutorManager.Controllers.StudentController}!ChangePassword@{ChangePassword}}
+\index{ChangePassword@{ChangePassword}!TutorManager.Controllers.StudentController@{TutorManager.Controllers.StudentController}}
+\doxysubsubsection{\texorpdfstring{ChangePassword()}{ChangePassword()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily IAction\+Result Tutor\+Manager.\+Controllers.\+Student\+Controller.\+Change\+Password (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tutor_manager_1_1_models_1_1_user_model}{User\+Model}}}]{model }\end{DoxyParamCaption})}
+
+
+
+Zmiana hasła w bazie. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & Model ze zmienionym hasłem\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Widok po zmianie hasła
+\end{DoxyReturn}
+\Hypertarget{class_tutor_manager_1_1_controllers_1_1_student_controller_a07cc37e87c363b1e372c8c92eb68032c}\label{class_tutor_manager_1_1_controllers_1_1_student_controller_a07cc37e87c363b1e372c8c92eb68032c} 
+\index{TutorManager.Controllers.StudentController@{TutorManager.Controllers.StudentController}!FindLesson@{FindLesson}}
+\index{FindLesson@{FindLesson}!TutorManager.Controllers.StudentController@{TutorManager.Controllers.StudentController}}
+\doxysubsubsection{\texorpdfstring{FindLesson()}{FindLesson()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily IAction\+Result Tutor\+Manager.\+Controllers.\+Student\+Controller.\+Find\+Lesson (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Widok formularza do szukania lekcji. 
+
+\begin{DoxyReturn}{Returns}
+Widok formularza HTML
+\end{DoxyReturn}
+\Hypertarget{class_tutor_manager_1_1_controllers_1_1_student_controller_aeb2ba90db91cc8a9df437dbb93e087d9}\label{class_tutor_manager_1_1_controllers_1_1_student_controller_aeb2ba90db91cc8a9df437dbb93e087d9} 
+\index{TutorManager.Controllers.StudentController@{TutorManager.Controllers.StudentController}!FindLesson@{FindLesson}}
+\index{FindLesson@{FindLesson}!TutorManager.Controllers.StudentController@{TutorManager.Controllers.StudentController}}
+\doxysubsubsection{\texorpdfstring{FindLesson()}{FindLesson()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily IAction\+Result Tutor\+Manager.\+Controllers.\+Student\+Controller.\+Find\+Lesson (\begin{DoxyParamCaption}\item[{string?}]{selected\+Subject }\end{DoxyParamCaption})}
+
+
+
+Znajdowanie w bazie Tutorów dla danego przedmiotu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em selected\+Subject} & Przedmiot do wyszukiwania\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Widok listy dostępnych Tutorów
+\end{DoxyReturn}
+\Hypertarget{class_tutor_manager_1_1_controllers_1_1_student_controller_a82b89725338c349ca19cfb0458492fae}\label{class_tutor_manager_1_1_controllers_1_1_student_controller_a82b89725338c349ca19cfb0458492fae} 
+\index{TutorManager.Controllers.StudentController@{TutorManager.Controllers.StudentController}!Index@{Index}}
+\index{Index@{Index}!TutorManager.Controllers.StudentController@{TutorManager.Controllers.StudentController}}
+\doxysubsubsection{\texorpdfstring{Index()}{Index()}}
+{\footnotesize\ttfamily IAction\+Result Tutor\+Manager.\+Controllers.\+Student\+Controller.\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Widok domowy. 
+
+\begin{DoxyReturn}{Returns}
+Widok domowy
+\end{DoxyReturn}
+\Hypertarget{class_tutor_manager_1_1_controllers_1_1_student_controller_a1d5c55273bcd387f4bc1ef3345f91381}\label{class_tutor_manager_1_1_controllers_1_1_student_controller_a1d5c55273bcd387f4bc1ef3345f91381} 
+\index{TutorManager.Controllers.StudentController@{TutorManager.Controllers.StudentController}!IsLogged@{IsLogged}}
+\index{IsLogged@{IsLogged}!TutorManager.Controllers.StudentController@{TutorManager.Controllers.StudentController}}
+\doxysubsubsection{\texorpdfstring{IsLogged()}{IsLogged()}}
+{\footnotesize\ttfamily bool Tutor\+Manager.\+Controllers.\+Student\+Controller.\+Is\+Logged (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Metoda sprawdzająca czy istnieje zalogowany użytkownik w sesji. 
+
+\begin{DoxyReturn}{Returns}
+1 -\/ nie istnieje, 0 -\/ istnieje
+\end{DoxyReturn}
+\Hypertarget{class_tutor_manager_1_1_controllers_1_1_student_controller_ab84f4d3b0f10dc684d52b5a2a608425d}\label{class_tutor_manager_1_1_controllers_1_1_student_controller_ab84f4d3b0f10dc684d52b5a2a608425d} 
+\index{TutorManager.Controllers.StudentController@{TutorManager.Controllers.StudentController}!Lesson@{Lesson}}
+\index{Lesson@{Lesson}!TutorManager.Controllers.StudentController@{TutorManager.Controllers.StudentController}}
+\doxysubsubsection{\texorpdfstring{Lesson()}{Lesson()}}
+{\footnotesize\ttfamily IAction\+Result Tutor\+Manager.\+Controllers.\+Student\+Controller.\+Lesson (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Widok lekcji użytkownika. 
+
+\begin{DoxyReturn}{Returns}
+Widok listy HTML
+\end{DoxyReturn}
+\Hypertarget{class_tutor_manager_1_1_controllers_1_1_student_controller_a2e95aeb953985f02bf7ce4abcb952bd4}\label{class_tutor_manager_1_1_controllers_1_1_student_controller_a2e95aeb953985f02bf7ce4abcb952bd4} 
+\index{TutorManager.Controllers.StudentController@{TutorManager.Controllers.StudentController}!Pay@{Pay}}
+\index{Pay@{Pay}!TutorManager.Controllers.StudentController@{TutorManager.Controllers.StudentController}}
+\doxysubsubsection{\texorpdfstring{Pay()}{Pay()}}
+{\footnotesize\ttfamily IAction\+Result Tutor\+Manager.\+Controllers.\+Student\+Controller.\+Pay (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Panel opłat. 
+
+\begin{DoxyReturn}{Returns}
+Widok panelu opłat
+\end{DoxyReturn}
+\Hypertarget{class_tutor_manager_1_1_controllers_1_1_student_controller_a939390b4642ed06ccd0d925d46c73e13}\label{class_tutor_manager_1_1_controllers_1_1_student_controller_a939390b4642ed06ccd0d925d46c73e13} 
+\index{TutorManager.Controllers.StudentController@{TutorManager.Controllers.StudentController}!Payment@{Payment}}
+\index{Payment@{Payment}!TutorManager.Controllers.StudentController@{TutorManager.Controllers.StudentController}}
+\doxysubsubsection{\texorpdfstring{Payment()}{Payment()}}
+{\footnotesize\ttfamily IAction\+Result Tutor\+Manager.\+Controllers.\+Student\+Controller.\+Payment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obsługa zapłaty. 
+
+\begin{DoxyReturn}{Returns}
+Przekierowanie do widoku panelu opłat
+\end{DoxyReturn}
+\Hypertarget{class_tutor_manager_1_1_controllers_1_1_student_controller_ac2ae4f55e01387e69fd03d4fadc7b831}\label{class_tutor_manager_1_1_controllers_1_1_student_controller_ac2ae4f55e01387e69fd03d4fadc7b831} 
+\index{TutorManager.Controllers.StudentController@{TutorManager.Controllers.StudentController}!RequestLesson@{RequestLesson}}
+\index{RequestLesson@{RequestLesson}!TutorManager.Controllers.StudentController@{TutorManager.Controllers.StudentController}}
+\doxysubsubsection{\texorpdfstring{RequestLesson()}{RequestLesson()}}
+{\footnotesize\ttfamily IAction\+Result Tutor\+Manager.\+Controllers.\+Student\+Controller.\+Request\+Lesson (\begin{DoxyParamCaption}\item[{int}]{tutor\+Id,  }\item[{Date\+Time}]{lesson\+Date\+Time }\end{DoxyParamCaption})}
+
+
+
+Obsługa zapisu na lekcję 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tutor\+Id} & ID wybranego Tutora\\
+\hline
+{\em lesson\+Date\+Time} & Data podana przez użytkownika\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Przikierowanie do widoku wyszukiwania lekcji
+\end{DoxyReturn}
+\Hypertarget{class_tutor_manager_1_1_controllers_1_1_student_controller_a9f89b63d9ab1e34d736c54bc81a38b23}\label{class_tutor_manager_1_1_controllers_1_1_student_controller_a9f89b63d9ab1e34d736c54bc81a38b23} 
+\index{TutorManager.Controllers.StudentController@{TutorManager.Controllers.StudentController}!Schedule@{Schedule}}
+\index{Schedule@{Schedule}!TutorManager.Controllers.StudentController@{TutorManager.Controllers.StudentController}}
+\doxysubsubsection{\texorpdfstring{Schedule()}{Schedule()}}
+{\footnotesize\ttfamily IAction\+Result Tutor\+Manager.\+Controllers.\+Student\+Controller.\+Schedule (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Widok harmonogramu. 
+
+\begin{DoxyReturn}{Returns}
+Widok harmonogramu
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+User/\+Tutor\+Manager/\+Tutor\+Manager/\+Controllers/Student\+Controller.\+cs\end{DoxyCompactItemize}

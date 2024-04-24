@@ -6,24 +6,45 @@ using TutorManager.Models;
 
 namespace TutorManager.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]/[action]")]
+/*    [ApiController]
+    [Route("api/[controller]/[action]")]*/
+
+    /// <summary>
+    /// Kontroler do obsługi akcji rejestracji
+    /// </summary>
     public class RegisterController : Controller
     {
         private readonly DataContext _db_con;
         private readonly ISession _session;
+
+        /// <summary>
+        /// Konstruktor kontrolera register
+        /// </summary>
+        /// <param name="dbContext">Context Entity framework</param>
+        /// <param name="httpContextAccessor">Bierząca sesja</param>
         public RegisterController(DataContext dbContext, IHttpContextAccessor httpContextAccessor)
         {
             _db_con = dbContext;
             _session = httpContextAccessor.HttpContext.Session;
         }
 
+        /// <summary>
+        /// Strona podstawowa
+        /// </summary>
+        /// <returns>Widok z formularzem rejestracji</returns>
         [HttpGet]
+        
         public IActionResult Index()
         {
             return View();
         }
 
+        /// <summary>
+        /// Zapisywanie użytkownika w bazie i sesji
+        /// </summary>
+        /// <param name="model">Model Tutor lub Student</param>
+        /// <param name="UserRole">Wejście z przycisku Tutor/Student</param>
+        /// <returns>Przekierowanie do formularza dodatkowego dla Tutora lub panelu Studenta</returns>
         [HttpPost]
         public IActionResult Index(UserModel model, string UserRole)
         {
@@ -105,12 +126,21 @@ namespace TutorManager.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// Widok dopisywania informacji dla Tutora
+        /// </summary>
+        /// <returns>Widok formularza z dodatkowymi informacjami</returns>
         [HttpGet]
         public IActionResult MoreInfo()
         {
             return View();
         }
 
+        /// <summary>
+        /// Dopisywanie dodatkowych informacji dla Tutoras
+        /// </summary>
+        /// <param name="model">Model tutora z dodatkowymi informacjami</param>
+        /// <returns>Przekierowanie do panelu Tutora</returns>
         [HttpPost]
         public IActionResult MoreInfo(TutorModel model)
         {

@@ -1,0 +1,94 @@
+\doxysection{Tutor\+Manager.\+Controllers.\+Login\+Controller Class Reference}
+\hypertarget{class_tutor_manager_1_1_controllers_1_1_login_controller}{}\label{class_tutor_manager_1_1_controllers_1_1_login_controller}\index{TutorManager.Controllers.LoginController@{TutorManager.Controllers.LoginController}}
+
+
+Kontroler do obsługi logowania.  
+
+
+Inheritance diagram for Tutor\+Manager.\+Controllers.\+Login\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_tutor_manager_1_1_controllers_1_1_login_controller}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_tutor_manager_1_1_controllers_1_1_login_controller_aec94f2c84cef69864b8792d02df1ab4a}{Login\+Controller}} (\mbox{\hyperlink{class_tutor_manager_1_1_data_1_1_data_context}{Data\+Context}} db\+Context, IHttp\+Context\+Accessor http\+Context\+Accessor)
+\begin{DoxyCompactList}\small\item\em Konstruktor kontrolera logowania. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_tutor_manager_1_1_controllers_1_1_login_controller_a65683070dca9b86362943c0665508e2e}{Index}} ()
+\begin{DoxyCompactList}\small\item\em Widok główny logowania. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_tutor_manager_1_1_controllers_1_1_login_controller_ab5d666591de4131a827491e09307cfce}{Index}} (string email, string password)
+\item 
+\Hypertarget{class_tutor_manager_1_1_controllers_1_1_login_controller_a62404d86494ad7147fe31a9e8d358afe}\label{class_tutor_manager_1_1_controllers_1_1_login_controller_a62404d86494ad7147fe31a9e8d358afe} 
+Action\+Result {\bfseries Logout} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_tutor_manager_1_1_controllers_1_1_login_controller_a34949dec8d3bd224fba1206a18e15dbd}\label{class_tutor_manager_1_1_controllers_1_1_login_controller_a34949dec8d3bd224fba1206a18e15dbd} 
+readonly \mbox{\hyperlink{class_tutor_manager_1_1_data_1_1_data_context}{Data\+Context}} {\bfseries \+\_\+db\+\_\+con}
+\item 
+\Hypertarget{class_tutor_manager_1_1_controllers_1_1_login_controller_a1ab0a2ae04326736c52d436932bb49a6}\label{class_tutor_manager_1_1_controllers_1_1_login_controller_a1ab0a2ae04326736c52d436932bb49a6} 
+readonly ISession {\bfseries \+\_\+session}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Kontroler do obsługi logowania. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_tutor_manager_1_1_controllers_1_1_login_controller_aec94f2c84cef69864b8792d02df1ab4a}\label{class_tutor_manager_1_1_controllers_1_1_login_controller_aec94f2c84cef69864b8792d02df1ab4a} 
+\index{TutorManager.Controllers.LoginController@{TutorManager.Controllers.LoginController}!LoginController@{LoginController}}
+\index{LoginController@{LoginController}!TutorManager.Controllers.LoginController@{TutorManager.Controllers.LoginController}}
+\doxysubsubsection{\texorpdfstring{LoginController()}{LoginController()}}
+{\footnotesize\ttfamily Tutor\+Manager.\+Controllers.\+Login\+Controller.\+Login\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tutor_manager_1_1_data_1_1_data_context}{Data\+Context}}}]{db\+Context,  }\item[{IHttp\+Context\+Accessor}]{http\+Context\+Accessor }\end{DoxyParamCaption})}
+
+
+
+Konstruktor kontrolera logowania. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em db\+Context} & Context Entity framework\\
+\hline
+{\em http\+Context\+Accessor} & Bierząca sesja\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_tutor_manager_1_1_controllers_1_1_login_controller_a65683070dca9b86362943c0665508e2e}\label{class_tutor_manager_1_1_controllers_1_1_login_controller_a65683070dca9b86362943c0665508e2e} 
+\index{TutorManager.Controllers.LoginController@{TutorManager.Controllers.LoginController}!Index@{Index}}
+\index{Index@{Index}!TutorManager.Controllers.LoginController@{TutorManager.Controllers.LoginController}}
+\doxysubsubsection{\texorpdfstring{Index()}{Index()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily IAction\+Result Tutor\+Manager.\+Controllers.\+Login\+Controller.\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Widok główny logowania. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_tutor_manager_1_1_controllers_1_1_login_controller_ab5d666591de4131a827491e09307cfce}\label{class_tutor_manager_1_1_controllers_1_1_login_controller_ab5d666591de4131a827491e09307cfce} 
+\index{TutorManager.Controllers.LoginController@{TutorManager.Controllers.LoginController}!Index@{Index}}
+\index{Index@{Index}!TutorManager.Controllers.LoginController@{TutorManager.Controllers.LoginController}}
+\doxysubsubsection{\texorpdfstring{Index()}{Index()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily IAction\+Result Tutor\+Manager.\+Controllers.\+Login\+Controller.\+Index (\begin{DoxyParamCaption}\item[{string}]{email,  }\item[{string}]{password }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & \\
+\hline
+{\em password} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+User/\+Tutor\+Manager/\+Tutor\+Manager/\+Controllers/Login\+Controller.\+cs\end{DoxyCompactItemize}

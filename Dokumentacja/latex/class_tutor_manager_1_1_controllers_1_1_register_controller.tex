@@ -1,0 +1,130 @@
+\doxysection{Tutor\+Manager.\+Controllers.\+Register\+Controller Class Reference}
+\hypertarget{class_tutor_manager_1_1_controllers_1_1_register_controller}{}\label{class_tutor_manager_1_1_controllers_1_1_register_controller}\index{TutorManager.Controllers.RegisterController@{TutorManager.Controllers.RegisterController}}
+
+
+Kontroler do obsługi akcji rejestracji.  
+
+
+Inheritance diagram for Tutor\+Manager.\+Controllers.\+Register\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_tutor_manager_1_1_controllers_1_1_register_controller}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_tutor_manager_1_1_controllers_1_1_register_controller_aac385824b0d462a96d41c5e757e97bcc}{Register\+Controller}} (\mbox{\hyperlink{class_tutor_manager_1_1_data_1_1_data_context}{Data\+Context}} db\+Context, IHttp\+Context\+Accessor http\+Context\+Accessor)
+\begin{DoxyCompactList}\small\item\em Konstruktor kontrolera register. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_tutor_manager_1_1_controllers_1_1_register_controller_a631eb6a1b44a33a7df4211921545b04b}{Index}} ()
+\begin{DoxyCompactList}\small\item\em Strona podstawowa. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_tutor_manager_1_1_controllers_1_1_register_controller_a5228a51606f2acd5e6a394866bb0e5bb}{Index}} (\mbox{\hyperlink{class_tutor_manager_1_1_models_1_1_user_model}{User\+Model}} model, string User\+Role)
+\begin{DoxyCompactList}\small\item\em Zapisywanie użytkownika w bazie i sesji. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_tutor_manager_1_1_controllers_1_1_register_controller_a39143ed8004cde54333a8eff84bde573}{More\+Info}} ()
+\begin{DoxyCompactList}\small\item\em Widok dopisywania informacji dla Tutora. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_tutor_manager_1_1_controllers_1_1_register_controller_a38fc64fbdf2c423bded0e9d8c151a6da}{More\+Info}} (\mbox{\hyperlink{class_tutor_manager_1_1_models_1_1_tutor_model}{Tutor\+Model}} model)
+\begin{DoxyCompactList}\small\item\em Dopisywanie dodatkowych informacji dla Tutoras. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_tutor_manager_1_1_controllers_1_1_register_controller_ac6cdb047f99a5715dff28d22ce645b6d}\label{class_tutor_manager_1_1_controllers_1_1_register_controller_ac6cdb047f99a5715dff28d22ce645b6d} 
+readonly \mbox{\hyperlink{class_tutor_manager_1_1_data_1_1_data_context}{Data\+Context}} {\bfseries \+\_\+db\+\_\+con}
+\item 
+\Hypertarget{class_tutor_manager_1_1_controllers_1_1_register_controller_a2a9861d258a1dfc58288529f8f38fa79}\label{class_tutor_manager_1_1_controllers_1_1_register_controller_a2a9861d258a1dfc58288529f8f38fa79} 
+readonly ISession {\bfseries \+\_\+session}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Kontroler do obsługi akcji rejestracji. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_tutor_manager_1_1_controllers_1_1_register_controller_aac385824b0d462a96d41c5e757e97bcc}\label{class_tutor_manager_1_1_controllers_1_1_register_controller_aac385824b0d462a96d41c5e757e97bcc} 
+\index{TutorManager.Controllers.RegisterController@{TutorManager.Controllers.RegisterController}!RegisterController@{RegisterController}}
+\index{RegisterController@{RegisterController}!TutorManager.Controllers.RegisterController@{TutorManager.Controllers.RegisterController}}
+\doxysubsubsection{\texorpdfstring{RegisterController()}{RegisterController()}}
+{\footnotesize\ttfamily Tutor\+Manager.\+Controllers.\+Register\+Controller.\+Register\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tutor_manager_1_1_data_1_1_data_context}{Data\+Context}}}]{db\+Context,  }\item[{IHttp\+Context\+Accessor}]{http\+Context\+Accessor }\end{DoxyParamCaption})}
+
+
+
+Konstruktor kontrolera register. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em db\+Context} & Context Entity framework\\
+\hline
+{\em http\+Context\+Accessor} & Bierząca sesja\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_tutor_manager_1_1_controllers_1_1_register_controller_a631eb6a1b44a33a7df4211921545b04b}\label{class_tutor_manager_1_1_controllers_1_1_register_controller_a631eb6a1b44a33a7df4211921545b04b} 
+\index{TutorManager.Controllers.RegisterController@{TutorManager.Controllers.RegisterController}!Index@{Index}}
+\index{Index@{Index}!TutorManager.Controllers.RegisterController@{TutorManager.Controllers.RegisterController}}
+\doxysubsubsection{\texorpdfstring{Index()}{Index()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily IAction\+Result Tutor\+Manager.\+Controllers.\+Register\+Controller.\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Strona podstawowa. 
+
+\begin{DoxyReturn}{Returns}
+Widok z formularzem rejestracji
+\end{DoxyReturn}
+\Hypertarget{class_tutor_manager_1_1_controllers_1_1_register_controller_a5228a51606f2acd5e6a394866bb0e5bb}\label{class_tutor_manager_1_1_controllers_1_1_register_controller_a5228a51606f2acd5e6a394866bb0e5bb} 
+\index{TutorManager.Controllers.RegisterController@{TutorManager.Controllers.RegisterController}!Index@{Index}}
+\index{Index@{Index}!TutorManager.Controllers.RegisterController@{TutorManager.Controllers.RegisterController}}
+\doxysubsubsection{\texorpdfstring{Index()}{Index()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily IAction\+Result Tutor\+Manager.\+Controllers.\+Register\+Controller.\+Index (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tutor_manager_1_1_models_1_1_user_model}{User\+Model}}}]{model,  }\item[{string}]{User\+Role }\end{DoxyParamCaption})}
+
+
+
+Zapisywanie użytkownika w bazie i sesji. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & Model Tutor lub Student\\
+\hline
+{\em User\+Role} & Wejście z przycisku Tutor/\+Student\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Przekierowanie do formularza dodatkowego dla Tutora lub panelu Studenta
+\end{DoxyReturn}
+\Hypertarget{class_tutor_manager_1_1_controllers_1_1_register_controller_a39143ed8004cde54333a8eff84bde573}\label{class_tutor_manager_1_1_controllers_1_1_register_controller_a39143ed8004cde54333a8eff84bde573} 
+\index{TutorManager.Controllers.RegisterController@{TutorManager.Controllers.RegisterController}!MoreInfo@{MoreInfo}}
+\index{MoreInfo@{MoreInfo}!TutorManager.Controllers.RegisterController@{TutorManager.Controllers.RegisterController}}
+\doxysubsubsection{\texorpdfstring{MoreInfo()}{MoreInfo()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily IAction\+Result Tutor\+Manager.\+Controllers.\+Register\+Controller.\+More\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Widok dopisywania informacji dla Tutora. 
+
+\begin{DoxyReturn}{Returns}
+Widok formularza z dodatkowymi informacjami
+\end{DoxyReturn}
+\Hypertarget{class_tutor_manager_1_1_controllers_1_1_register_controller_a38fc64fbdf2c423bded0e9d8c151a6da}\label{class_tutor_manager_1_1_controllers_1_1_register_controller_a38fc64fbdf2c423bded0e9d8c151a6da} 
+\index{TutorManager.Controllers.RegisterController@{TutorManager.Controllers.RegisterController}!MoreInfo@{MoreInfo}}
+\index{MoreInfo@{MoreInfo}!TutorManager.Controllers.RegisterController@{TutorManager.Controllers.RegisterController}}
+\doxysubsubsection{\texorpdfstring{MoreInfo()}{MoreInfo()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily IAction\+Result Tutor\+Manager.\+Controllers.\+Register\+Controller.\+More\+Info (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tutor_manager_1_1_models_1_1_tutor_model}{Tutor\+Model}}}]{model }\end{DoxyParamCaption})}
+
+
+
+Dopisywanie dodatkowych informacji dla Tutoras. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & Model tutora z dodatkowymi informacjami\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Przekierowanie do panelu Tutora
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+User/\+Tutor\+Manager/\+Tutor\+Manager/\+Controllers/Register\+Controller.\+cs\end{DoxyCompactItemize}

@@ -3,15 +3,27 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TutorManager.Models
 {
+    /// <summary>
+    /// Model lekcji
+    /// </summary>
     public class LessonModel
     {
+        /// <summary>
+        /// Klucz primary
+        /// </summary>
         [Key]
         public int LessonId { get; set; }
 
+        /// <summary>
+        /// Klucz foreign z tabeli Tutor
+        /// </summary>
         [ForeignKey("Tutor")]
         public int TutorId { get; set; }
         public virtual TutorModel? Tutor { get; set; }
 
+        /// <summary>
+        /// Klucz foreign z tabeli Student
+        /// </summary>
         [ForeignKey("Student")]
         public int StudentId { get; set; }
         public virtual StudentModel? Student { get; set; }

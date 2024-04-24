@@ -4,24 +4,44 @@ using TutorManager.Models;
 
 namespace TutorManager.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]/[action]")]
+/*    [ApiController]
+    [Route("api/[controller]/[action]")]*/
+
+    /// <summary>
+    /// Kontroler do obsługi logowania
+    /// </summary>
     public class LoginController : Controller
     {
         private readonly DataContext _db_con;
         private readonly ISession _session;
+
+        /// <summary>
+        /// Konstruktor kontrolera logowania
+        /// </summary>
+        /// <param name="dbContext">Context Entity framework</param>
+        /// <param name="httpContextAccessor">Bierząca sesja</param>
         public LoginController(DataContext dbContext, IHttpContextAccessor httpContextAccessor)
         {
             _db_con = dbContext;
             _session = httpContextAccessor.HttpContext.Session;
         }
 
+        /// <summary>
+        /// Widok główny logowania
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
 
+        /// <summary>
+        /// Logowanie
+        /// </summary>
+        /// <param name="email">Email</param>
+        /// <param name="password">Hasło</param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Index(string email, string password)
         {
@@ -62,6 +82,10 @@ namespace TutorManager.Controllers
             return View(email, password);
         }
 
+        /// <summary>
+        /// Wylogowywanie
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult Logout()
         {
